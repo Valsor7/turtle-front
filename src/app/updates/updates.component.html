@@ -1,0 +1,43 @@
+<div class="container">
+  <h3>Send info about new updates</h3>
+  <br>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form ngForm class="form-group" (ngSubmit)="sendUpdates()" #updatesForm="ngForm">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            class="form-control"
+            ngModel>
+        </div>
+        <div class="form-group">
+          <label for="info">Info</label>
+          <textarea
+            name="info"
+            id="info"
+            class="form-control"
+            ngModel>
+          </textarea>
+        </div>
+        <!--add material module-->
+        <div class="form-group">
+          <mat-form-field>
+            <mat-select placeholder="Choose language" [(ngModel)]="selectedLang" name="langSelector">
+              <mat-option *ngFor="let lang of languages" [(value)]="lang">
+                {{lang}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit">
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
